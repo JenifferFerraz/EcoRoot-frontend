@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions, Text, StatusBar, SafeAreaView, Pressable 
 import { IconButton, TextInput, Button, Checkbox } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 
-export default function RelatoriosDescarte() {
+export default function NovoDescarte() {
   const router = useRouter();
   type CheckedItems = {
     Metal: boolean;

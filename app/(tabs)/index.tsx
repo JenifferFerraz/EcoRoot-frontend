@@ -4,8 +4,8 @@ import { View, StyleSheet, Dimensions, Image, StatusBar, SafeAreaView } from 're
 import { TextInput, Button } from 'react-native-paper';
 
 export default function LoginScreen() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [login, setEmail] = React.useState("");
+  const [senha, setPassword] = React.useState("");
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -19,7 +19,7 @@ export default function LoginScreen() {
         <View style={styles.content}>
           <TextInput
             label="Email"
-            value={email}
+            value={login}
             onChangeText={text => setEmail(text)}
             mode="outlined"
             style={[styles.input]}
@@ -28,7 +28,7 @@ export default function LoginScreen() {
           />
           <TextInput
             label="Password"
-            value={password}
+            value={senha}
             onChangeText={text => setPassword(text)}
             mode="outlined"
             secureTextEntry

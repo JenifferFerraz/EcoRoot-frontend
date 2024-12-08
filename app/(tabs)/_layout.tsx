@@ -1,45 +1,142 @@
-import { Tabs } from 'expo-router';
+import { Stack } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
-import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export default function TabLayout() {
+export default function StackLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <Tabs
+    <Stack
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
+        contentStyle: { backgroundColor: Colors[colorScheme ?? 'light'].background },
+      }}
+    >
+      <Stack.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
         }}
       />
-      <Tabs.Screen
+      <Stack.Screen
+        name="cadastrocliente"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="cadastrogestor"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="config"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="dashboard"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="map"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="notification"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="typecount"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="relatoriodescarte"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
+        name="novodescarte"
+        options={{
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
+        }}
+      />
+      <Stack.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerShown: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
+          headerTintColor: Colors[colorScheme ?? 'light'].text,
         }}
       />
-    </Tabs>
+    </Stack>
   );
 }

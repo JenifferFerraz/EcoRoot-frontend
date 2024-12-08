@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, Text, StatusBar, SafeAreaView, Pressable } from 'react-native';
-import { IconButton, Card, Badge, TextInput, Button } from 'react-native-paper';
-import { useRouter } from 'expo-router';
+import { View, StyleSheet, Dimensions, Text, StatusBar, SafeAreaView, Pressable, TouchableOpacity } from 'react-native';
+import { IconButton, Card, Badge, TextInput, Button, Appbar } from 'react-native-paper';
+import { useRouter, Link } from 'expo-router';
 
 export default function RelatoriosDescarte() {
   const router = useRouter();
+  const [isNegotiator, setIsNegotiator] = React.useState(false);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -43,6 +44,27 @@ export default function RelatoriosDescarte() {
             </View>
           </Card.Content>
         </Card>
+        <View style={styles.navbarContainer}>
+          <Appbar style={styles.appBar}>
+            <TouchableOpacity style={styles.link}>
+              <Link href="/dashboard" style={styles.linkText}>
+                <IconButton icon="home" iconColor="#ffffff" size={24} />
+              </Link>
+            </TouchableOpacity>
+            {!isNegotiator && (
+              <TouchableOpacity style={styles.link}>
+                <Link href="/novodescarte" style={styles.linkText}>
+                  <IconButton icon="plus" iconColor="#ffffff" size={24} />
+                </Link>
+              </TouchableOpacity>
+            )}
+            <TouchableOpacity style={styles.link}>
+              <Link href="/config" style={styles.linkText}>
+                <IconButton icon="cog" iconColor="#ffffff" size={24} />
+              </Link>
+            </TouchableOpacity>
+          </Appbar>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -119,5 +141,35 @@ const styles = StyleSheet.create({
   },
   exportButton: {
     marginHorizontal: 5,
+  },
+  navbarContainer: {
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+  },
+  appBar: {
+    backgroundColor: '#5F939A',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  link: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  linkText: {
+    textDecorationLine: 'none',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+  },
+  paper: {
+    margin: 10,
+    padding: 10,
+  },
+  text: {
+    fontSize: 18,
   },
 });

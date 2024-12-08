@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "latitude": -23.550520,
+    "longitude": -46.633308,
+    "endereco": "São Paulo, SP, Brasil"
+  },
+  {
+    "id": 2,
+    "latitude": -22.906847,
+    "longitude": -43.172896,
+    "endereco": "Rio de Janeiro, RJ, Brasil"
+  },
+  {
+    "id": 3,
+    "latitude": -19.916681,
+    "longitude": -43.934493,
+    "endereco": "Belo Horizonte, MG, Brasil"
+  },
+  {
+    "id": 4,
+    "latitude": -25.428954,
+    "longitude": -49.267137,
+    "endereco": "Curitiba, PR, Brasil"
+  },
+  {
+    "id": 5,
+    "latitude": -30.034647,
+    "longitude": -51.217658,
+    "endereco": "Porto Alegre, RS, Brasil"
+  },
+  {
+    "id": 6,
+    "latitude": -15.780148,
+    "longitude": -47.929169,
+    "endereco": "Brasília, DF, Brasil"
+  },
+  {
+    "id": 7,
+    "latitude": -12.971399,
+    "longitude": -38.501305,
+    "endereco": "Salvador, BA, Brasil"
+  },
+  {
+    "id": 8,
+    "latitude": -3.717220,
+    "longitude": -38.543369,
+    "endereco": "Fortaleza, CE, Brasil"
+  },
+  {
+    "id": 9,
+    "latitude": -8.047562,
+    "longitude": -34.877001,
+    "endereco": "Recife, PE, Brasil"
+  },
+  {
+    "id": 10,
+    "latitude": -1.455754,
+    "longitude": -48.490179,
+    "endereco": "Belém, PA, Brasil"
+  }
+]

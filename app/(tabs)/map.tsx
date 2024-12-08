@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { Link } from 'expo-router';
+
+import { View, StyleSheet, Dimensions, TouchableOpacity, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { IconButton, Appbar } from 'react-native-paper';
 
 export default function MapScreen() {
+  const [isNegotiator, setIsNegotiator] = React.useState(false);
   return (
     <View style={styles.container}>
       <MapView
@@ -23,6 +27,27 @@ export default function MapScreen() {
       <View style={styles.infoContainer}>
         <View style={styles.redDot} />
         <Text>Concentração de Usuários</Text>
+      </View>
+      <View style={styles.navbarContainer}>
+        <Appbar style={styles.appBar}>
+          <TouchableOpacity style={styles.link}>
+            <Link href="/dashboard" style={styles.linkText}>
+              <IconButton icon="home" iconColor="#ffffff" size={24} />
+            </Link>
+          </TouchableOpacity>
+          {!isNegotiator && (
+            <TouchableOpacity style={styles.link}>
+              <Link href="/novodescarte" style={styles.linkText}>
+                <IconButton icon="plus" iconColor="#ffffff" size={24} />
+              </Link>
+            </TouchableOpacity>
+          )}
+          <TouchableOpacity style={styles.link}>
+            <Link href="/config" style={styles.linkText}>
+              <IconButton icon="cog" iconColor="#ffffff" size={24} />
+            </Link>
+          </TouchableOpacity>
+        </Appbar>
       </View>
     </View>
   );
@@ -51,5 +76,35 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: 'red',
     marginRight: 5,
+  },
+  navbarContainer: {
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+  },
+  appBar: {
+    backgroundColor: '#5F939A',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  link: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  linkText: {
+    textDecorationLine: 'none',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+  },
+  paper: {
+    margin: 10,
+    padding: 10,
+  },
+  text: {
+    fontSize: 18,
   },
 });

@@ -1,12 +1,28 @@
 import { Link, useRouter } from 'expo-router';
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, Image, StatusBar, SafeAreaView, Pressable, Text } from 'react-native';
-import { TextInput, Button, IconButton, Card, Badge } from 'react-native-paper';
+import { View, StyleSheet, Dimensions, TouchableOpacity, Image, StatusBar, SafeAreaView, Pressable, Text } from 'react-native';
+import { TextInput, IconButton, Card, Badge, Appbar } from 'react-native-paper';
 import MapView, { Marker } from 'react-native-maps';
 
 export default function DashBoard() {
   const router = useRouter();
   const [userName, setUserName] = React.useState("User");
+  const [isNegotiator, setIsNegotiator] = React.useState(false);
+
+  React.useEffect(() => {
+    fetchUser();
+  }, []);
+
+  const fetchUser = async () => {
+    try {
+      const response = await fetch('@/assents/mocks/user.json');
+      const data = await response.json();
+      setUserName(data.name);
+      setIsNegotiator(data.isNegotiator);
+    } catch (error) {
+      console.error('Erro ao buscar usuário:', error);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -54,7 +70,7 @@ export default function DashBoard() {
               <Text style={styles.cardText}>Registrar Novo Descarte</Text>
             </Card.Content>
           </Card>
-          <Link href="/relatoriosdescarte" >
+          <Link href="/relatoriosdescarte">
             <Card style={styles.card}>
               <Card.Content style={styles.cardContent}>
                 <IconButton icon="file-document" size={24} iconColor="#ffffff" style={styles.Icons} />
@@ -79,16 +95,57 @@ export default function DashBoard() {
                   title="Ponto de Coleta"
                   description="Descrição do ponto de coleta"
                 />
+                <Marker
+                  coordinate={{ latitude: 37.78925, longitude: -122.4334 }}
+                  title="Ponto de Coleta 2"
+                  description="Descrição do ponto de coleta 2"
+                />
+                <Marker
+                  coordinate={{ latitude: 37.79025, longitude: -122.4344 }}
+                  title="Ponto de Coleta 3"
+                  description="Descrição do ponto de coleta 3"
+                />
+                <Marker
+                  coordinate={{ latitude: 37.79125, longitude: -122.4354 }}
+                  title="Ponto de Coleta 4"
+                  description="Descrição do ponto de coleta 4"
+                />
+                <Marker
+                  coordinate={{ latitude: 37.79225, longitude: -122.4364 }}
+                  title="Ponto de Coleta 5"
+                  description="Descrição do ponto de coleta 5"
+                />
               </MapView>
             </Card.Content>
           </Card>
+        </View>
+        <View style={styles.navbarContainer}>
+          <Appbar style={styles.appBar}>
+            <TouchableOpacity style={styles.link}>
+              <Link href="/dashboard" style={styles.linkText}>
+                <IconButton icon="home" iconColor="#ffffff" size={24} />
+              </Link>
+            </TouchableOpacity>
+            {!isNegotiator && (
+              <TouchableOpacity style={styles.link}>
+                <Link href="/novodescarte" style={styles.linkText}>
+                  <IconButton icon="plus" iconColor="#ffffff" size={24} />
+                </Link>
+              </TouchableOpacity>
+            )}
+            <TouchableOpacity style={styles.link}>
+              <Link href="/config" style={styles.linkText}>
+                <IconButton icon="cog" iconColor="#ffffff" size={24} />
+              </Link>
+            </TouchableOpacity>
+          </Appbar>
         </View>
       </View>
     </SafeAreaView>
   );
 }
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -205,5 +262,35 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: 150,
+  },
+  navbarContainer: {
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+  },
+  appBar: {
+    backgroundColor: '#5F939A',
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  link: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  linkText: {
+    textDecorationLine: 'none',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+  },
+  paper: {
+    margin: 10,
+    padding: 10,
+  },
+  text: {
+    fontSize: 18,
   },
 });

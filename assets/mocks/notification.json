@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Rota de Passagem do Caminhão",
+    "content": "O caminhão vai passar a 2 Km da sua localização!",
+    "badgeCount": 1
+  },
+  {
+    "id": 2,
+    "title": "Coleta Agendada",
+    "content": "Sua coleta está agendada para amanhã às 10h.",
+    "badgeCount": 2
+  },
+  {
+    "id": 3,
+    "title": "Novo Ponto de Coleta",
+    "content": "Um novo ponto de coleta foi adicionado próximo a você.",
+    "badgeCount": 3
+  }
+]

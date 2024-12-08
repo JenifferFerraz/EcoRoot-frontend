@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nome": "Usuario 1",
+    "login": "user1@mail.com",
+    "numeroCelular": "11 9999-9999",
+    "senha": "123456",
+    "tipoUsuario": "cidadao",
+    "dataCriacao": "2024-12-08T03:19:00.444Z"
+  },
+  {
+    "id": 2,
+    "nome": "Usuario 2",
+    "login": "user2@mail.com",
+    "numeroCelular": "11 9999-9999",
+    "senha": "123456",
+    "tipoUsuario": "cidadao",
+    "dataCriacao": "2024-12-08T03:19:00.502Z"
+  },
+  {
+    "id": 3,
+    "nome": "Usuario 3",
+    "login": "teste@mail.com",
+    "numeroCelular": "11 9999-9999",
+    "senha": "123",
+    "tipoUsuario": "cidadao",
+    "dataCriacao": "2024-12-08T03:19:00.502Z"
+  }
+]
